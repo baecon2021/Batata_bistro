@@ -1,4 +1,5 @@
 import React from 'react';
+import { ABOUT_IMAGE } from '../constants';
 
 const About: React.FC = () => {
   return (
@@ -13,7 +14,7 @@ const About: React.FC = () => {
           <div className="md:col-span-7 relative order-1 md:order-1">
              <div className="relative aspect-[4/3] md:aspect-[4/3] overflow-hidden rounded-sm shadow-xl md:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] dark:shadow-none bg-stone-200 dark:bg-stone-900">
                <img 
-                 src="https://images.unsplash.com/photo-1576021182211-9c52014b7104?q=80&w=1000&auto=format&fit=crop" 
+                 src= "images/Batata_recheada.jpg" 
                  alt="Chef preparando prato no Batata Bistrô" 
                  loading="lazy"
                  width="800"

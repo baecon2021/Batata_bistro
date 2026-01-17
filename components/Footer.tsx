@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
           <div className="flex flex-col items-center md:items-start space-y-4">
              <div className="flex items-center gap-3 mb-2">
                 <img 
-                    src={BRAND_LOGO} 
+                    src="images/Logo_bataBistro.jpg"
                     alt="Logo Batata Bistrô" 
                     loading="lazy"
                     className="w-10 h-10 rounded-full border border-stone-600" 
