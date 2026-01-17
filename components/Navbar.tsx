@@ -131,7 +131,7 @@ const Navbar: React.FC = () => {
             title="Voltar ao início"
           >
              <img 
-              src="images/Logo_bataBistro.jpg"
+              src={BRAND_LOGO}
               alt="Logo Batata Bistrô" 
               className={`rounded-full border-2 border-bistro-500 shadow-sm group-hover:scale-105 transition-all duration-300 object-cover 
                 ${isScrolled ? 'h-8 w-8 md:h-10 md:w-10' : 'h-10 w-10 md:h-12 md:w-12'}`}

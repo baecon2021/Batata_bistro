@@ -43,7 +43,7 @@ const Menu: React.FC = () => {
               {/* Image Container - Mobile: Rounded & Shadowed for depth */}
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-stone-200 dark:bg-stone-800 rounded-2xl md:rounded-none shadow-xl md:shadow-none mb-6 md:mb-0">
                 <img 
-                  src="images/Batata_recheada3.jpg"
+                  src={item.image} 
                   alt={item.title} 
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
