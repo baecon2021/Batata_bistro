@@ -1,28 +1,26 @@
 import React from 'react';
-import { ABOUT_IMAGE } from '../constants';
+import aboutImg from '../images/Batata_recheada2.webp';
 
 const About: React.FC = () => {
   return (
     <section id="sobre" className="py-16 md:py-32 lg:py-40 bg-white dark:bg-stone-950 transition-colors duration-500 overflow-hidden relative">
-      {/* Subtle Texture for Light Mode */}
-      <div className="absolute inset-0 opacity-[0.03] dark:opacity-0 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')]"></div>
-
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
           
-          {/* Image Column - Top on Mobile */}
+          {/* Image Column */}
           <div className="md:col-span-7 relative order-1 md:order-1">
              <div className="relative aspect-[4/3] md:aspect-[4/3] overflow-hidden rounded-sm shadow-xl md:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] dark:shadow-none bg-stone-200 dark:bg-stone-900">
                <img 
-                 src={ABOUT_IMAGE} 
+                 src={aboutImg}
                  alt="Chef preparando prato no Batata Bistrô" 
                  loading="lazy"
+                 decoding="async"
                  width="800"
                  height="600"
                  className="w-full h-full object-cover"
                />
                
-               {/* Badge - Elegant Overlay for Mobile */}
+               {/* Badge */}
                <div className="absolute bottom-4 right-4 bg-white/90 dark:bg-stone-900/90 backdrop-blur text-stone-900 dark:text-white px-4 py-2 shadow-lg flex flex-col items-center justify-center border border-stone-100 dark:border-stone-800">
                   <span className="block text-lg md:text-2xl font-serif italic font-bold text-bistro-600">100%</span>
                   <span className="text-[8px] md:text-[10px] uppercase tracking-wider block">Artesanal</span>

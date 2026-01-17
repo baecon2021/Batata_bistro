@@ -1,6 +1,6 @@
 import React from 'react';
-import { BRAND_LOGO } from '../constants';
 import { Instagram, MapPin, Phone } from 'lucide-react';
+import logoImg from '../images/Logo_bataBistro.webp';
 
 const Footer: React.FC = () => {
   return (
@@ -12,9 +12,11 @@ const Footer: React.FC = () => {
           <div className="flex flex-col items-center md:items-start space-y-4">
              <div className="flex items-center gap-3 mb-2">
                 <img 
-                    src={BRAND_LOGO}
+                    src={logoImg}
                     alt="Logo Batata Bistrô" 
                     loading="lazy"
+                    width="40"
+                    height="40"
                     className="w-10 h-10 rounded-full border border-stone-600" 
                 />
                 <span className="text-2xl font-serif text-white">Batata Bistrô</span>

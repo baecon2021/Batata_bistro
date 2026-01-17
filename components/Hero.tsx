@@ -1,6 +1,7 @@
 import React from 'react';
-import { HERO_BG, ORDER_URL } from '../constants';
-import { ChevronDown, ArrowRight, ExternalLink } from 'lucide-react';
+import { ORDER_URL } from '../constants';
+import { ChevronDown, ExternalLink } from 'lucide-react';
+import heroBg from '../images/Batata_recheada.webp';
 
 const Hero: React.FC = () => {
   const handleScrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -30,12 +31,11 @@ const Hero: React.FC = () => {
       {/* Background with Parallax effect */}
       <div 
         className="absolute inset-0 bg-cover bg-[center_top] md:bg-center bg-no-repeat bg-fixed transform-gpu will-change-transform"
-        style={{ backgroundImage: `url(${HERO_BG})` }}
+        style={{ backgroundImage: `url(${heroBg})` }}
         role="img"
         aria-label="Imagem de destaque do Batata Bistrô"
       >
         {/* Cinematic Gradient Overlay */}
-        {/* Mobile: Stronger bottom fade to ensure text readability against any image */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/95 md:bg-gradient-to-t md:from-black/90 md:via-black/40 md:to-black/30"></div>
       </div>
 
@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
              </span>
           </div>
           
-          {/* Main Title - Optimized for Mobile Typography */}
+          {/* Main Title */}
           <h1 className="font-serif text-white drop-shadow-2xl">
             <span className="block text-[3rem] leading-[1.05] sm:text-6xl md:text-7xl lg:text-8xl tracking-tight">
               Sabor que
@@ -66,11 +66,11 @@ const Hero: React.FC = () => {
             Batatas recheadas elevadas ao nível da alta gastronomia. Uma experiência única de conforto.
           </p>
 
-          {/* CTA Buttons - Mobile: Full width stacking for "App-like" feel */}
+          {/* CTA Buttons */}
           <div className="pt-8 md:pt-10 flex flex-col sm:flex-row gap-4 w-full md:w-auto">
             <a 
               href={ORDER_URL} 
-              target="_blank"
+              target="_blank" 
               rel="noopener noreferrer"
               className="group w-full sm:w-auto px-8 py-4 bg-bistro-600 text-white border border-bistro-600 font-serif italic text-lg hover:bg-bistro-700 hover:border-bistro-700 transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-bistro-900/20 active:scale-95"
             >
@@ -88,7 +88,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Elegant Scroll Indicator - Hidden on mobile to save vertical space */}
+      {/* Elegant Scroll Indicator */}
       <div 
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity cursor-pointer hidden md:flex" 
         onClick={(e) => handleScrollToSection(e as any, '#sobre')}

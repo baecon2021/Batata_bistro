@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { BRAND_LOGO, ORDER_URL, OPERATING_SCHEDULE } from '../constants';
+import { ORDER_URL, OPERATING_SCHEDULE } from '../constants';
 import { Clock, Menu as MenuIcon, X, Moon, Sun, ExternalLink, CalendarDays } from 'lucide-react';
+import logoImg from '../images/Logo_bataBistro.webp';
 
 const Navbar: React.FC = () => {
   const [currentTime, setCurrentTime] = useState<string>('');
@@ -40,19 +41,15 @@ const Navbar: React.FC = () => {
       const now = new Date();
       setCurrentTime(now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }));
 
-      // Operating Hours Logic based on Image
-      // Sunday: 18:25 - 22:50
-      // Wed-Sat: 18:25 - 23:00
-      // Mon, Tue: Closed
-
+      // Operating Hours Logic
       const day = now.getDay(); // 0 = Sunday
       const hours = now.getHours();
       const minutes = now.getMinutes();
       const totalMinutes = hours * 60 + minutes;
 
-      const OPEN_MINUTES = 18 * 60 + 25; // 18:25 = 1105
-      const CLOSE_MINUTES_SUN = 22 * 60 + 50; // 22:50 = 1370
-      const CLOSE_MINUTES_STD = 23 * 60; // 23:00 = 1380
+      const OPEN_MINUTES = 18 * 60 + 25; // 18:25
+      const CLOSE_MINUTES_SUN = 22 * 60 + 50; // 22:50
+      const CLOSE_MINUTES_STD = 23 * 60; // 23:00
 
       let open = false;
 
@@ -60,7 +57,7 @@ const Navbar: React.FC = () => {
         if (totalMinutes >= OPEN_MINUTES && totalMinutes < CLOSE_MINUTES_SUN) {
           open = true;
         }
-      } else if (day >= 3 && day <= 6) { // Wed (3), Thu (4), Fri (5), Sat (6)
+      } else if (day >= 3 && day <= 6) { // Wed-Sat
         if (totalMinutes >= OPEN_MINUTES && totalMinutes < CLOSE_MINUTES_STD) {
           open = true;
         }
@@ -131,12 +128,13 @@ const Navbar: React.FC = () => {
             title="Voltar ao início"
           >
              <img 
-              src={BRAND_LOGO}
+              src={logoImg}
               alt="Logo Batata Bistrô" 
+              width="48"
+              height="48"
               className={`rounded-full border-2 border-bistro-500 shadow-sm group-hover:scale-105 transition-all duration-300 object-cover 
                 ${isScrolled ? 'h-8 w-8 md:h-10 md:w-10' : 'h-10 w-10 md:h-12 md:w-12'}`}
             />
-            {/* Mobile: Text hides on very small screens, smaller font on mobile */}
             <span className={`font-serif font-bold tracking-tight transition-colors duration-300 hidden xs:block
               ${isScrolled ? 'text-stone-900 dark:text-stone-100 text-lg md:text-xl' : 'text-white text-lg md:text-2xl drop-shadow-md'}`}>
               Batata Bistrô
@@ -219,9 +217,8 @@ const Navbar: React.FC = () => {
             </button>
           </div>
 
-          {/* Mobile Actions - Optimized for space */}
+          {/* Mobile Actions */}
           <div className="md:hidden flex items-center gap-2">
-             {/* Mobile Status Indicator - Smaller text, tight padding */}
              <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full transition-all duration-300 shadow-sm border border-transparent ${
                 isOpen 
                   ? 'bg-bistro-600 text-white border-bistro-500/50' 

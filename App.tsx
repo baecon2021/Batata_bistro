@@ -5,8 +5,8 @@ import About from './components/About';
 import Menu from './components/Menu';
 import InstagramFeed from './components/InstagramFeed';
 import Footer from './components/Footer';
-import { Smartphone, RotateCw } from 'lucide-react';
-import { BRAND_LOGO } from './constants';
+import { RotateCw } from 'lucide-react';
+import logoImg from './images/Logo_bataBistro.webp';
 
 const OrientationLock: React.FC = () => {
   return (
@@ -14,8 +14,10 @@ const OrientationLock: React.FC = () => {
       <div className="mb-8 relative">
         <div className="absolute inset-0 bg-bistro-600 blur-xl opacity-20 rounded-full"></div>
         <img 
-          src={BRAND_LOGO} 
+          src={logoImg}
           alt="Batata Bistrô" 
+          width="80"
+          height="80"
           className="w-20 h-20 rounded-full border-2 border-stone-700 relative z-10"
         />
       </div>
@@ -35,7 +37,14 @@ const OrientationLock: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen font-sans selection:bg-bistro-200 dark:selection:bg-bistro-800 selection:text-bistro-900 dark:selection:text-bistro-100 bg-bistro-50 dark:bg-stone-900 transition-colors duration-300">
+    <div className="min-h-screen font-sans selection:bg-bistro-200 dark:selection:bg-bistro-800 selection:text-bistro-900 dark:selection:text-bistro-100 bg-bistro-50 dark:bg-stone-900 transition-colors duration-300 relative">
+      
+      {/* Global Texture Overlay */}
+      <div 
+        className="fixed inset-0 z-[40] pointer-events-none opacity-40 dark:opacity-[0.07] mix-blend-multiply dark:mix-blend-soft-light bg-[length:300px_300px]"
+        style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/cream-paper.png')" }}
+      ></div>
+
       {/* Landscape Lock Overlay */}
       <OrientationLock />
       
