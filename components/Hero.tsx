@@ -1,100 +1,97 @@
 import React from 'react';
-import { ORDER_URL } from '../constants';
+import { ORDER_URL, IMAGES } from '../constants';
 import { ChevronDown, ExternalLink } from 'lucide-react';
-import heroBg from '../images/Batata_recheada.webp';
 
 const Hero: React.FC = () => {
   const handleScrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    // If it's the external order link, let default behavior happen
     if (href.startsWith('http')) return;
-
     e.preventDefault();
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
-    
     if (element) {
-      const navbarHeight = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - navbarHeight;
-
       window.scrollTo({
-        top: offsetPosition,
+        top: element.getBoundingClientRect().top + window.scrollY - 80,
         behavior: "smooth"
       });
     }
   };
 
   return (
-    // min-h-[100dvh] ensures it fits perfectly on mobile browsers with dynamic toolbars
-    <section className="relative min-h-[100dvh] w-full overflow-hidden flex flex-col justify-end">
+    <section className="relative min-h-[100dvh] w-full overflow-hidden flex flex-col justify-center md:justify-end bg-stone-950">
       
-      {/* Background with Parallax effect */}
+      {/* Background - MOBILE: Gourmet Gradient & Radial Light */}
+      <div className="absolute inset-0 md:hidden bg-gradient-to-br from-stone-950 via-stone-900 to-bistro-950">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(176,125,98,0.15)_0%,transparent_80%)]"></div>
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/pinstripe.png')] opacity-10 mix-blend-overlay"></div>
+      </div>
+
+      {/* Background - DESKTOP: Original Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-[center_top] md:bg-center bg-no-repeat bg-fixed transform-gpu will-change-transform"
-        style={{ backgroundImage: `url(${heroBg})` }}
+        className="hidden md:block absolute inset-0 bg-cover bg-center bg-no-repeat transform-gpu will-change-transform scale-105 hero-bg"
+        style={{ backgroundImage: `url('${IMAGES.HERO_MAIN}')` }}
         role="img"
         aria-label="Imagem de destaque do Batata Bistrô"
       >
-        {/* Cinematic Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/95 md:bg-gradient-to-t md:from-black/90 md:via-black/40 md:to-black/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/20 to-transparent"></div>
       </div>
 
-      <div className="relative z-10 w-full px-6 pb-20 md:pb-32 lg:pb-40 max-w-7xl mx-auto">
-        <div className="max-w-4xl animate-fade-in-up space-y-6 md:space-y-6">
+      <div className="relative z-10 w-full px-6 py-20 md:pb-32 lg:pb-40 max-w-7xl mx-auto">
+        <div className="max-w-4xl transform-gpu flex flex-col items-center md:items-start text-center md:text-left">
           
-          {/* Tagline */}
-          <div className="flex items-center gap-3 md:gap-4 opacity-100 mb-2">
-             <div className="h-[2px] w-8 md:w-12 bg-bistro-500 shadow-[0_0_10px_rgba(161,96,69,0.5)]"></div>
-             <span className="text-bistro-100 md:text-bistro-200 font-sans tracking-[0.2em] md:tracking-[0.3em] uppercase text-[10px] md:text-sm font-bold drop-shadow-md">
-               Bistrô & Gastronomia
-             </span>
-          </div>
-          
-          {/* Main Title */}
-          <h1 className="font-serif text-white drop-shadow-2xl">
-            <span className="block text-[3rem] leading-[1.05] sm:text-6xl md:text-7xl lg:text-8xl tracking-tight">
-              Sabor que
+          {/* Title */}
+          <h1 className="font-serif text-white mb-4 md:mb-8 order-1">
+            <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tighter leading-[0.9] mb-1">
+              Batata
             </span>
-            <span className="block text-[3rem] leading-[1.05] sm:text-6xl md:text-7xl lg:text-8xl tracking-tight">
-              <span className="italic text-bistro-300 font-light pr-2 brightness-110 font-serif">abraça</span> 
-              a alma.
+            <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tighter leading-[0.9]">
+              <span className="italic text-bistro-400 font-light pr-0 md:pr-4">Bistrô</span>
             </span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg md:text-xl text-stone-200 font-light max-w-md md:max-w-lg leading-relaxed pt-2 md:pt-4 drop-shadow-lg text-shadow-sm border-l-2 border-white/20 pl-4 md:border-0 md:pl-0">
-            Batatas recheadas elevadas ao nível da alta gastronomia. Uma experiência única de conforto.
+          <div className="flex items-center gap-4 mb-8 md:mb-6 order-2 md:order-first">
+             <div className="h-[1px] w-8 md:w-12 bg-bistro-500"></div>
+             <span className="text-bistro-200 font-sans tracking-[0.3em] md:tracking-[0.4em] uppercase text-[9px] md:text-xs font-bold whitespace-nowrap">
+               A Arte do Conforto
+             </span>
+             <div className="h-[1px] w-8 md:hidden bg-bistro-500"></div>
+          </div>
+
+          {/* Description - Hidden on mobile */}
+          <p className="hidden md:block text-base md:text-xl text-stone-300 font-light max-w-lg leading-relaxed mb-12 border-l border-bistro-600/50 pl-6 order-3">
+            Onde a simplicidade encontra o luxo. Sabores que contam histórias e aquecem o coração.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="pt-8 md:pt-10 flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+          {/* Buttons */}
+          <div className="flex flex-row gap-3 md:gap-6 w-full md:w-auto order-4 mt-8 md:mt-0">
             <a 
               href={ORDER_URL} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="group w-full sm:w-auto px-8 py-4 bg-bistro-600 text-white border border-bistro-600 font-serif italic text-lg hover:bg-bistro-700 hover:border-bistro-700 transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-bistro-900/20 active:scale-95"
+              className="flex-1 md:flex-none group px-4 md:px-12 py-4 md:py-5 bg-bistro-600 text-white font-serif italic text-lg md:text-2xl hover:bg-bistro-700 transition-all duration-500 flex items-center justify-center gap-2 md:gap-4 shadow-2xl active:scale-95 transform-gpu"
             >
-              Fazer Pedido
-              <ExternalLink size={18} className="group-hover:translate-x-1 transition-transform" />
+              <span className="md:hidden">Pedidos</span>
+              <span className="hidden md:inline">Fazer Pedido</span>
+              <ExternalLink size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </a>
             <a 
               href="#sobre" 
               onClick={(e) => handleScrollToSection(e, '#sobre')}
-              className="group w-full sm:w-auto px-8 py-4 bg-white/10 border border-white/30 text-white backdrop-blur-md hover:bg-white hover:text-stone-900 transition-all duration-300 flex items-center justify-center font-sans tracking-widest text-xs font-bold uppercase shadow-lg active:scale-95"
+              className="flex-1 md:flex-none px-4 md:px-12 py-4 md:py-5 bg-white/5 border border-white/10 text-white backdrop-blur-xl hover:bg-white hover:text-stone-950 transition-all duration-500 flex items-center justify-center font-sans tracking-widest text-[10px] font-bold uppercase active:scale-95 transform-gpu"
             >
-              Conhecer o Bistrô
+              <span className="md:hidden">História</span>
+              <span className="hidden md:inline">Nossa História</span>
             </a>
           </div>
         </div>
       </div>
 
-      {/* Elegant Scroll Indicator */}
+      {/* Scroll indicator */}
       <div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity cursor-pointer hidden md:flex" 
+        className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30 hover:opacity-100 transition-opacity cursor-pointer group" 
         onClick={(e) => handleScrollToSection(e as any, '#sobre')}
       >
-        <span className="text-[10px] uppercase tracking-widest text-white/90 font-medium">Descubra</span>
-        <ChevronDown size={20} className="text-white animate-bounce" />
+        <ChevronDown size={20} className="text-white animate-bounce group-hover:text-bistro-400 transition-colors" />
       </div>
     </section>
   );

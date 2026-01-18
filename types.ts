@@ -5,6 +5,7 @@ export interface MenuItem {
   price: string;
   image: string;
   serves: string;
+  category: 'carne' | 'mar' | 'veg';
 }
 
 export interface InstagramPost {

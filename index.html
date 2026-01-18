@@ -1,14 +1,71 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR" class="scroll-smooth dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Batata Bistrô</title>
-    <meta name="description" content="O verdadeiro sabor do conforto. Batatas recheadas gourmet." />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Batata Bistrô | O Sabor do Conforto em Cada Detalhe</title>
+    
+    <!-- SEO Primário -->
+    <meta name="description" content="Descubra a melhor batata recheada gourmet. Ingredientes selecionados, sabor artesanal e uma experiência gastronômica única no Batata Bistrô." />
+    <meta name="keywords" content="batata recheada, batata gourmet, bistrô, gastronomia, strogonoff de coração, batata mexicana, restaurante gourmet" />
+    <meta name="author" content="Batata Bistrô" />
+    <link rel="canonical" href="https://batatabistro.com.br" />
+    <meta name="theme-color" content="#0c0a09" />
+    
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://batatabistro.com.br/" />
+    <meta property="og:title" content="Batata Bistrô | Gastronomia Reconfortante" />
+    <meta property="og:description" content="Elevando a batata recheada ao nível da alta gastronomia. Experiência artesanal e sabor incomparável." />
+    <meta property="og:image" content="https://drive.google.com/thumbnail?id=15pPY1jjaXrUjLIyQCC6S0F7VN2BPfsmY&sz=w1200" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Batata Bistrô | Gastronomia Reconfortante" />
+    <meta property="twitter:description" content="Elevando a batata recheada ao nível da alta gastronomia." />
+
+    <!-- Preload & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Batata Bistrô",
+      "image": "https://drive.google.com/thumbnail?id=15pPY1jjaXrUjLIyQCC6S0F7VN2BPfsmY&sz=w1200",
+      "url": "https://batatabistro.com.br",
+      "telephone": "+5511999999999",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua das Acácias, 123",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "postalCode": "01234-567",
+        "addressCountry": "BR"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "18:25",
+          "closes": "23:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "18:25",
+          "closes": "22:50"
+        }
+      ],
+      "servesCuisine": "Gourmet Stuffed Potatoes",
+      "priceRange": "$$"
+    }
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         darkMode: 'class',
@@ -19,71 +76,45 @@
               sans: ['"Lato"', 'sans-serif'],
             },
             colors: {
-              // Updated Palette for better Light Mode
-              stone: {
-                50: '#fafaf9',
-                100: '#f5f5f4',
-                200: '#e7e5e4',
-                300: '#d6d3d1',
-                400: '#a8a29e',
-                500: '#78716c',
-                600: '#57534e',
-                700: '#44403c',
-                800: '#292524',
-                900: '#1c1917',
-                950: '#0c0a09',
-              },
+              stone: { 950: '#0c0a09' },
               bistro: {
-                50: '#FAF7F2', // Linen / Bone (New Light Mode BG)
-                100: '#F0EBE5',
-                200: '#E6DDD5',
-                300: '#D4C0B0',
+                200: '#E6D5C9',
                 400: '#C29D85',
                 500: '#B07D62',
-                600: '#A16045', // Primary Brand Color
-                700: '#854D39',
+                600: '#A16045',
                 800: '#6E4134',
                 900: '#59362D',
+                950: '#2d1b16',
               }
+            },
+            animation: {
+              'spin-slow': 'spin 8s linear infinite',
             }
           }
         }
       }
     </script>
     <style>
-      /* Custom scrollbar */
-      ::-webkit-scrollbar {
-        width: 6px; /* Thinner for elegance */
-      }
-      ::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #D4C0B0;
-        border-radius: 10px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #A16045;
-      }
+      ::-webkit-scrollbar { width: 5px; }
+      ::-webkit-scrollbar-track { background: #0c0a09; }
+      ::-webkit-scrollbar-thumb { background: #59362D; border-radius: 10px; }
       
-      /* Dark mode scrollbar */
-      .dark ::-webkit-scrollbar-thumb {
-        background: #44403c;
-      }
-      .dark ::-webkit-scrollbar-thumb:hover {
-        background: #57534e;
-      }
-
-      /* Image loading optimization fade-in */
       img {
         opacity: 0;
-        animation: fadeIn 0.5s ease-in forwards;
+        animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        image-rendering: -webkit-optimize-contrast;
       }
       
       @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
       }
+
+      .hero-bg { filter: brightness(0.6) contrast(1.1); }
+      .text-balance { text-wrap: balance; }
+      
+      /* Smooth transitions for navigation */
+      html { scroll-behavior: smooth; }
     </style>
   <script type="importmap">
 {
@@ -97,7 +128,7 @@
 }
 </script>
 </head>
-  <body class="bg-bistro-50 dark:bg-stone-950 text-stone-800 dark:text-stone-200 antialiased transition-colors duration-500">
+  <body class="bg-stone-950 text-stone-200 antialiased overflow-x-hidden">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

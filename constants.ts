@@ -1,45 +1,60 @@
 import { MenuItem, InstagramPost } from './types';
-import imgBatata1 from './images/Batata_recheada.webp';
-import imgBatata2 from './images/Batata_recheada2.webp';
-import imgBatata3 from './images/Batata_recheada3.webp';
 
-// Constants for text data
+// Image URLs (High Resolution)
+export const IMAGES = {
+  HERO_MAIN: "https://drive.google.com/thumbnail?id=1BHYfGPJIZOOoAmPY_QC1MViza7KfIYPq&sz=w2000",
+  STROGONOFF_CARNE: "https://drive.google.com/thumbnail?id=15pPY1jjaXrUjLIyQCC6S0F7VN2BPfsmY&sz=w1400",
+  MEXICANA: "https://drive.google.com/thumbnail?id=1fOjABeMfj5BoD7yIKJW_iYjgsrjP4dKn&sz=w1400",
+  BROCOLIS: "https://drive.google.com/thumbnail?id=1qYDweP8XunPa2ctPNoXCv-fVsUxJE_JB&sz=w1400",
+  CORACAO: "https://drive.google.com/thumbnail?id=1k9obl5ja4IEVfoLzImmzci7KzbnFT2Pi&sz=w1400"
+};
 
-// URL for online ordering
 export const ORDER_URL = "https://pedido.anota.ai/loja/BatataBistro";
 
 export const MENU_ITEMS: MenuItem[] = [
   {
     id: 1,
-    title: "A Especial do Chef",
-    description: "Batata recheada com requeijão, copa-lombo suíno defumado, barbecue artesanal, queijo quark, finalizado com farofa crocante de bacon, maçã verde e farinha panko.",
-    price: "R$ 46,00",
+    title: "Batata Strogonoff de Carne",
+    description: "Requeijão, carne em cubos, molho de mostarda, bacon, queijo e batata palha artesanal.",
+    price: "R$ 42,90",
     serves: "Serve 01 pessoa",
-    image: imgBatata1
+    image: IMAGES.STROGONOFF_CARNE,
+    category: 'carne'
   },
   {
     id: 2,
-    title: "Rústica de Calabresa",
-    description: "Batata assada macia recheada com mix de queijos derretidos, calabresa artesanal acebolada e pimentões salteados, trazendo um sabor caseiro e marcante.",
-    price: "R$ 42,00",
+    title: "Batata Mexicana",
+    description: "Requeijão, calabresa em cubos, pimentão, azeitona, pimenta, bacon, queijo e batata palha.",
+    price: "R$ 42,90",
     serves: "Serve 01 pessoa",
-    image: imgBatata2
+    image: IMAGES.MEXICANA,
+    category: 'carne'
   },
   {
     id: 3,
-    title: "Supreme de Bacon",
-    description: "Uma explosão de sabor com nossa batata recheada com creme de queijo suave, coberta com bacon crocante em cubos e palha de batata artesanal.",
-    price: "R$ 44,00",
+    title: "Batata Strogonoff de Coração",
+    description: "Requeijão, coração premium, bacon, queijo derretido e batata palha crocante.",
+    price: "R$ 44,90",
     serves: "Serve 01 pessoa",
-    image: imgBatata3
+    image: IMAGES.CORACAO,
+    category: 'carne'
+  },
+  {
+    id: 4,
+    title: "Quatro Queijos com Brócolis",
+    description: "Requeijão, gorgonzola, mussarela, provolone, brócolis fresco e batata palha.",
+    price: "R$ 36,90",
+    serves: "Serve 01 pessoa",
+    image: IMAGES.BROCOLIS,
+    category: 'veg'
   }
 ];
 
 export const INSTAGRAM_POSTS: InstagramPost[] = [
-  { id: 1, image: imgBatata1, alt: "Nossa especialidade" },
-  { id: 2, image: imgBatata2, alt: "Detalhes do prato" },
-  { id: 3, image: imgBatata3, alt: "Sabor inigualável" },
-  { id: 4, image: imgBatata1, alt: "Ingredientes frescos" },
+  { id: 1, image: IMAGES.STROGONOFF_CARNE, alt: "Sabor Incomparável" },
+  { id: 2, image: IMAGES.MEXICANA, alt: "A Pimenta Perfeita" },
+  { id: 3, image: IMAGES.CORACAO, alt: "Clássico do Bistrô" },
+  { id: 4, image: IMAGES.BROCOLIS, alt: "Equilíbrio Verde" },
 ];
 
 export const INSTAGRAM_URL = "https://www.instagram.com/batata_bistro/";
